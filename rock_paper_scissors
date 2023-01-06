@@ -1,0 +1,64 @@
+import random
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+#Write your code below this line 👇
+"""Rock Paper Scisors core"""
+print('Welcome to Rock Paper Scissors game')
+try:
+    player_choice = int(
+        input("Type 0 to choose rock, 1 for paper, 2 for scissors: "))
+except Exception:
+    exit('Please choose intiger number on next run.')
+if player_choice > 2 or player_choice < 0:
+    exit('Choice should be 0, 1 or 2. Please try again')
+choices_list = [rock, paper, scissors]
+print(f"You've chosen:\n{choices_list[player_choice]}")
+
+computer_choice = random.randint(0, 2)
+print(f'Opponnents choice was \n{choices_list[computer_choice]}')
+
+possible_outcomes = {
+    0: {
+        0: 'There was a draw',
+        1: "You've lost",
+        2: "You won"
+    },
+    1: {
+        0: 'You won',
+        1: "There was a draw",
+        2: "You've lost"
+    },
+    2: {
+        0: "You've lost",
+        1: "You won",
+        2: "There was a draw"
+    }
+}
+
+print(possible_outcomes[player_choice][computer_choice])
